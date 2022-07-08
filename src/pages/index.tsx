@@ -1,4 +1,8 @@
 import { GetStaticProps } from 'next';
+import { Head } from 'next/document';
+import { RichText } from 'prismic-dom';
+import { useState } from 'react';
+import Header from '../components/Header';
 
 import { getPrismicClient } from '../services/prismic';
 
@@ -21,16 +25,41 @@ interface PostPagination {
 }
 
 interface HomeProps {
-  postsPagination: PostPagination;
+  postsResponse: PostPagination;
 }
 
-// export default function Home() {
-//   // TODO
-// }
+export default function Home({ postsResponse }: HomeProps): JSX.Element {
+  const [nextPage, setNextPage] = useState<string>(postsResponse.next_page);
 
-// export const getStaticProps = async () => {
-//   // const prismic = getPrismicClient({});
-//   // const postsResponse = await prismic.getByType(TODO);
+  return (
+    <>
+      <Head>
+        <title>Spacetraveling | Home</title>
+      </Head>
 
-//   // TODO
-// };
+      <Header />
+      <main>
+        <p>TESTE</p>
+      </main>
+    </>
+  );
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient({});
+  const postsResponse = await prismic.getByType('publication', {
+    fetch: ['post.title', 'post.subtitle', 'post.author'],
+    pageSize: 20,
+  });
+
+  const { next_page, results } = postsResponse;
+
+  return {
+    props: {
+      postsResponse: {
+        next_page,
+        results,
+      },
+    },
+  };
+};
