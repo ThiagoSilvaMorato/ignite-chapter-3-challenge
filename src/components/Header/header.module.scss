@@ -1,1 +1,13 @@
-// TODO
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  nav {
+    margin: 5rem auto auto 23.25rem;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+}

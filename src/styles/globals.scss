@@ -1,17 +1,42 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-// :root {
-//   --highlight: #FF57B2
+:root {
+  --highlight: #ff57b2;
 
-//   --heading: #F8F8F8
+  --heading: #f8f8f8;
 
-//   --background: #1A1D23
+  --background: #1a1d23;
 
-//   --info: #BBBBBB
+  --info: #bbbbbb;
 
-//   --body: #D7D7D7
-// }
+  --body: #d7d7d7;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font: 400 1rem 'Inter', sans-serif;
+  background: var(--background);
+}
+
+button {
+  cursor: pointer;
+}

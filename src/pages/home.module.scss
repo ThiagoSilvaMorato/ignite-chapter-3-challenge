@@ -1,1 +1,47 @@
-// TODO
+.container {
+  display: block;
+  max-width: 43.75rem;
+  margin: 4.0625rem 0 0 23.25rem;
+
+  .postTitle {
+    color: var(--heading);
+    font-size: 1.75rem;
+    margin-top: 3.125rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    color: var(--body);
+    margin-top: 0.5rem;
+  }
+
+  Link {
+    cursor: pointer;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+
+    p {
+      color: var(--info);
+      margin-left: 0.75rem;
+      margin-right: 1.5rem;
+    }
+  }
+
+  button {
+    color: var(--highlight);
+    border: none;
+    margin-top: 4rem;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

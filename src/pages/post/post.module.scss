@@ -1,1 +1,13 @@
-// TODO
+.container {
+  max-width: 1720px;
+  color: var(--heading);
+  align-items: center;
+  justify-content: center;
+
+  picture {
+    img {
+      width: 500px;
+      height: 500px;
+    }
+  }
+}
